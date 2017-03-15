@@ -1,0 +1,27 @@
+{
+  "name": "crazycrazydanceparty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo src/client.js:bundle.js -lo --ssl --dir src",
+    "server": "./node_modules/.bin/nodemon ./src/server.js"
+  },
+  "author": "kareniel",
+  "license": "MIT",
+  "devDependencies": {
+    "budo": "^9.4.7",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "audiobuffer-to-wav": "^1.0.0",
+    "express": "^4.15.2",
+    "node-uuid": "^1.4.7",
+    "pem": "^1.9.4",
+    "random-name": "^0.1.2",
+    "restify": "^4.3.0",
+    "three": "^0.84.0",
+    "xhr": "^2.4.0",
+    "yo-yo": "^1.4.0"
+  }
+}
