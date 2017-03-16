@@ -1,41 +1,37 @@
 const yo = require('yo-yo')
 const http = require('xhr')
 const uuid = require('node-uuid')
-const random = require('random-name')
 
 const baseUrl = 'https://localhost:1337'
 const user = new User()
 
 function User () {
   this.id = uuid()
-  this.name = random.first()
-  this.pos = {x: 32, y: 32}
   this.reach = 100
+  this.position = null
 
-  this.move = () => {
-    const val = coinFlip() ? 1 : -1
-    const horizontal = coinFlip()
+  this.updatePosition = () => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const {latitude, longitude} = position.coords
+      this.position = {lat: latitude, lng: longitude}
 
-    if (horizontal) {
-      this.pos.x += val
-    } else {
-      this.pos.y += val
-    }
+      console.log(position)
 
-    http.post({
-      url: `${baseUrl}/position`,
-      json: true,
-      body: this
-    }, (err, res) => {
-      if (err) {
-        return console.error(err)
+      const opts = {
+        url: `${baseUrl}/position`,
+        json: true,
+        body: this
       }
+
+      http.post(opts, (err, res) => {
+        if (err) { return console.error(err) }
+      })
     })
   }
 
-  this.move()
+  this.updatePosition()
 
-  setInterval(this.move, 3000)
+  setInterval(this.updatePosition, 60 * 1000)
 }
 
 function coinFlip() {
