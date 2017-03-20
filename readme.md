@@ -15,3 +15,5 @@ npm start
 
 - *localized*: a channel has a `bounding box`
   no one can post to it if their coordinates are not within it
+
+---

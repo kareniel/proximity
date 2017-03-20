@@ -41,6 +41,39 @@ function coinFlip() {
 const el = yo`
   <div>
     <h1>proximity</h1>
+
+    <hr>
+
+    <button>spawn user</button>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>username</th>
+          <th>status</th>
+          <th>lat</th>
+          <th>lng</th>
+          <th>reach</th>
+          <th>channels</th>
+          <th>remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jonathan</td>
+          <td>moving</td>
+          <td>-73.5784</td>
+          <td>45.5380</td>
+          <td>100m</td>
+          <td>[A, B, C]</td>
+          <td><button>x</button></td>           
+        </tr>
+      </tbody>
+    </table>
+
+
+    
   </div>
 `
 
